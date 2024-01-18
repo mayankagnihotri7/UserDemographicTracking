@@ -1,0 +1,3 @@
+hourly_fetch_and_store_random_users_job:
+  class: 'HourlyFetchAndStoreRandomUsersJob'
+  cron: '* * */1 * * *'
