@@ -13,9 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for user in users limit: 2 %}
-      {% render 'user_row' for users as user %}
-    {% endfor %}
+    {% render 'user_row' for users as user %}
   </tbody>
 </table>
 

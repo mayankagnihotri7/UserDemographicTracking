@@ -4,7 +4,7 @@ class HourlyFetchAndStoreRandomUsersJob
   include Sidekiq::Job
 
   def perform(*args)
-    response = HTTParty.get("https://randomuser.me/api/?results=20&seed=#{SecureRandom.hex}")
+    response = HTTParty.get("https://randomuser.me/api/?results=20")
     users_data = JSON.parse(response.body)["results"]
 
     users_data.each do |user_data|
