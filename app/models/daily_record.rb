@@ -13,4 +13,12 @@
 #  updated_at     :datetime         not null
 #
 class DailyRecord < ApplicationRecord
+  after_update :calculate_avgerage_ages, if: :saved_change_to_male_count? || :saved_change_to_female_count?
+
+  private
+
+  def calculate_avgerage_ages
+    self.male_avg_age = User.where(gender: "male").average(:age).to_i
+    self.male_avg_age = User.where(gender: "female").average(:age).to_i
+  end
 end

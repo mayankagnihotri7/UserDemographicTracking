@@ -1,3 +1,7 @@
 hourly_fetch_and_store_random_users_job:
   class: 'HourlyFetchAndStoreRandomUsersJob'
   cron: '* * */1 * * *'
+
+tally_user_gender_and_age_data_job:
+  class: 'TallyUserGenderAndAgeDataJob'
+  cron: '* * * */1 * *'
