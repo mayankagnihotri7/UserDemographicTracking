@@ -1,12 +1,12 @@
 <tr>
   <td>{{ user["name"]["title"] }} {{ user["name"]["first"] }} {{ user["name"]["last"] }}</td>
   <td>{{ user["age"] }}</td>
-  <td>{{ user["gender"] }}</td>
-  <td>{{ user["created_at"] | date: "%d %m %Y" }}</td>
-  <tr>
+  <td>{{ user["gender"] | capitalize }}</td>
+  <td>{{ user["created_at"] | date: "%d/%m/%Y" }}</td>
+  <td>
     <form action="/users/{{ user.id }}/delete" method="post" style="display: none;">
       <input type="hidden" name="_method" value="delete">
     </form>
     <a href="#" onclick="this.previousElementSibling.submit()">Delete</a>
-  </tr>
+  </td>
 </tr>

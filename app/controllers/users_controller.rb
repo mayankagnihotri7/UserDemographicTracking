@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @users = User.all
+    search_query = params[:search_query]
+    @users = User.search_name_case_insensitive(search_query)
     @daily_records = DailyRecord.all
 
     liquid_template = Liquid::Template.parse(

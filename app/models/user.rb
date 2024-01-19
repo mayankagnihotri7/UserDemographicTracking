@@ -13,4 +13,10 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+  scope :search_name_case_insensitive, ->(query) {
+    where(
+      "LOWER(name->>'last') LIKE LOWER(:query) OR LOWER(name->>'first') LIKE LOWER(:query)",
+      query: "%#{query}"
+    )
+  }
 end

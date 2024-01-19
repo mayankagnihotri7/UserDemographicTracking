@@ -1,6 +1,23 @@
-{% for user in users limit: 2 %}
-  {% render 'user_row' for users as user %}
-{% endfor %}
+<table>
+  <form action="/users" method="get">
+    <input type="text" name="search_query" placeholder="Search users">
+    <button type="submit">Search</button>
+  </form>
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Created at</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users limit: 2 %}
+      {% render 'user_row' for users as user %}
+    {% endfor %}
+  </tbody>
+</table>
 
 <p>Total Number of Users: {{ total_user_count }}</p>
 
@@ -19,7 +36,7 @@
   <tbody>
     {% for daily_record in daily_records %}
       <tr>
-        <td>{{ daily_record.created_at | date: "%d %m %Y" }}</td>
+        <td>{{ daily_record.created_at | date: "%d/%m/%Y" }}</td>
         <td>{{ daily_record.male_count }}</td>
         <td>{{ daily_record.female_count }}</td>
         <td>{{ daily_record.male_avg_age }}</td>
