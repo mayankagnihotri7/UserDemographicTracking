@@ -3,5 +3,10 @@
   <td>{{ user["age"] }}</td>
   <td>{{ user["gender"] }}</td>
   <td>{{ user["created_at"] | date: "%d %m %Y" }}</td>
-  <tr><a href="/users/{{ user.id }}/delete" data-confirm="Are you sure?">Delete</a></tr>
+  <tr>
+    <form action="/users/{{ user.id }}/delete" method="post" style="display: none;">
+      <input type="hidden" name="_method" value="delete">
+    </form>
+    <a href="#" onclick="this.previousElementSibling.submit()">Delete</a>
+  </tr>
 </tr>

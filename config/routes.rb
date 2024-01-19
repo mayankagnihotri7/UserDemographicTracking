@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   mount Sidekiq::Web => '/sidekiq'
   get "/users" => "users#index"
+  delete "/users/:id/delete" => "users#destroy"
 
   # Defines the root path route ("/")
   # root "posts#index"
