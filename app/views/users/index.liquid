@@ -1,0 +1,30 @@
+{% for user in users limit: 2 %}
+  {% render 'user_row' for users as user %}
+{% endfor %}
+
+<p>Total Number of Users: {{ total_user_count }}</p>
+
+<h2>Daily Record Report</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Male count</th>
+      <th>Female count</th>
+      <th>Male Average Age</th>
+      <th>Female Average Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for daily_record in daily_records %}
+      <tr>
+        <td>{{ daily_record.created_at | date: "%d %m %Y" }}</td>
+        <td>{{ daily_record.male_count }}</td>
+        <td>{{ daily_record.female_count }}</td>
+        <td>{{ daily_record.male_avg_age }}</td>
+        <td>{{ daily_record.female_avg_age }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

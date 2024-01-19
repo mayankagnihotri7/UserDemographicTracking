@@ -1,0 +1,7 @@
+<tr>
+  <td>{{ user["name"]["title"] }} {{ user["name"]["first"] }} {{ user["name"]["last"] }}</td>
+  <td>{{ user["age"] }}</td>
+  <td>{{ user["gender"] }}</td>
+  <td>{{ user["created_at"] | date: "%d %m %Y" }}</td>
+  <tr><a href="/users/{{ user.id }}/delete" data-confirm="Are you sure?">Delete</a></tr>
+</tr>
